@@ -84,7 +84,7 @@
                             <a class="nav-link" href="{{ route('admin.posts.index') }}">Posts</a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="#">Users</a>
                         </li>
 
@@ -94,7 +94,7 @@
 
                         <li class=" nav-item">
                             <a class="nav-link" href="#">Tags</a>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>
