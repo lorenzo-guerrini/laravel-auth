@@ -12,9 +12,9 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Title</th>
-                    <th>Slug</th>
-                    <th class="text-center">Actions</th>
+                    <th class="col-4">Title - Slug</th>
+                    <th class="col-6">Content</th>
+                    <th class="text-center col-2">Actions</th>
                 </tr>
             </thead>
 
@@ -22,12 +22,20 @@
                 @foreach ($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->slug }}</td>
+                        <td>
+                            <div><strong>{{ $post->title }}</strong></div>
+                            <div>({{ $post->slug }})</div>
+                        </td>
+                        <td>
+                            {{ substr($post->content, 0, 150)}}
+                            @if (strlen($post->content) > 150)
+                            (...)
+                            @endif
+                        </td>
 
                         <td class="text-center">
                             <a class="btn btn-primary btn-sm mb-1"
-                                href="{{ route('admin.posts.show', ['post' => $post->id]) }}">Show</a>
+                                href="{{ route('admin.posts.show', ['post' => $post->id]) }}">More Info</a>
 
                             <a class="btn btn-primary btn-sm mb-1"
                                 href="{{ route('admin.posts.edit', ['post' => $post->id]) }}">Edit</a>
