@@ -60,7 +60,7 @@ class PostController extends Controller
         $new_post->fill($form_data);
         $new_post->save();
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with(['msg' => '<div class="alert alert-success" role="alert">Comic succefully added</div>']);
     }
 
     /**
@@ -115,7 +115,7 @@ class PostController extends Controller
         $form_data['slug'] = $slug;
 
         $post->update($form_data);
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with(['msg' => '<div class="alert alert-success" role="alert">Comic succefully updated</div>']);
     }
 
     /**
@@ -127,6 +127,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('admin.posts.index');
+
+        return redirect()->route('admin.posts.index')->with(['msg' => '<div class="alert alert-success" role="alert">Comic succefully deleted</div>']);
     }
 }
